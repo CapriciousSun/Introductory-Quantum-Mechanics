@@ -1,0 +1,59 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 1}
+\author{Jeremy Chen}
+\date{January 15, 2025}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}.}]
+\item Consider a particle subject to a potential energy $V(x) = a|x|$. The one-dimensional time-independent Schrödinger equation for this potential is given by 
+$$\frac{d^{2}\psi}{dx^{2}} + \frac{2m}{\hbar^{2}}(E - a|x|)\psi = 0$$
+Define $E = \epsilon(\hbar^{2}a^{2}/m)^{1/3}$ and $x = z(\hbar^{2}/ma)^{1/3}$. 
+\begin{enumerate}[(a)]
+\item Using only symmetry considerations, sketch the lowest three energy eigenstates for a particle bound in this potential. 
+
+\color{violet}
+The energy for some $E_{n}$ is $\frac{n^{2}\hbar^{2}\pi^{2}}{2mL^{2}}$. 
+\color{black}
+
+\item Show that $\epsilon$ and $z$ are dimensionless. 
+
+\color{violet}
+Starting with $z$, position function will be used. Since the dimensions of potential energy is $ML^{2}T^{-2}$, the dimension of $a$ should be $MLT^{-2}$ since potential energy is $a|x|$ and $x$ is $L$. The dimensional representation of $x$ should be the following equality.
+$$L = z\left( \frac{(ML^{2}T^{-1})^{2}}{L * MLT^{-2}} \right)^{1/3} = z\left( \frac{M^{2}L^{4}T^{-2}}{M^{2}LT^{-2}} \right)^{1/3} = z(L^{3})^{1/3} = zL $$
+As seen above, the simplification would result in the same dimensions on both sides, hence $z$ is dimensionless. Next is the energy eigenfunction, which has dimension $ML^{2}T^{-2}$ and can be represented by the following equality. 
+$$ML^{2}T^{-2} = \epsilon \left( \frac{(ML^{2}T^{-1})^{2}(MLT^{-2})^{2}}{M} \right)^{1/3} = \epsilon ( M^{3}L^{6}T^{-6} )^{1/3} = \epsilon ML^{2}T^{-2}$$
+Through the simplification, both the left and right hand side have the same dimensions, meaning that $z$ is dimensionless as well. 
+\color{black}
+
+\item Show that the Schrödinger equation above can be expressed in the form
+$$\frac{d^{2}\psi}{dx^{2}} + 2(\epsilon - |z|)\psi = 0$$
+
+\color{violet}
+Substituting the energy eigenfunction and position function into the given Schrödinger equation would result in the following equality.
+$$\frac{d^{2}\psi}{dx^{2}} + \frac{2m}{\hbar^{2}}\left[ \epsilon \left( \frac{\hbar^{2}a^{2}}{m} \right)^{1/3} - a\left| z\left( \frac{\hbar^{2}}{ma} \right)^{1/3} \right| \right]\psi = 0$$
+Then it could be evaluated for.
+\begin{gather*}
+\frac{d^{2}\psi}{dx^{2}} + \left( \frac{2m^{2/3}\epsilon a^{2/3}}{\hbar^{4/3}} - \left| \frac{2m^{2/3}a^{2/3}z}{\hbar^{4/3}} \right| \right)\psi = 0 \\
+\frac{d^{2}\psi}{dx^{2}} + 2(\epsilon - |z|)\frac{m^{2/3}a^{2/3}}{\hbar^{4/3}}\psi = 0
+\end{gather*}
+If we were to assume at some point that the potential energy that the particle is subject to is such that $a^{2/3} = \frac{\hbar^{4/3}}{m^{2/3}}$, so the resulting equality would be
+$$\frac{d^{2}\psi}{dx^{2}} + 2(\epsilon - |z|)\psi = 0$$
+\color{black}
+
+\end{enumerate}
+\item Consider the one-dimensional Schrödinger equation with a step potential 
+$$U(x) = \begin{cases}
+0 & x < -a \\
+U_{0} & -a < x < a \\
+0 & x > a
+\end{cases}$$
+where $a$ and $U_{0}$ are positive constants. Using matching conditions at $x = \pm a$, find the transmitted wave function $\psi(x, t)$ and probability density $\rho(x, t)$ in the region $x > a$, for an incident wave corresponding to a particle of mass m and energy $E = U_{0}/2$ moving towards the potential barrier from $x < -a$. Express the results in terms of the quantity $k = \sqrt{2mE/\hbar}$. 
+\end{enumerate}
+\end{document}
