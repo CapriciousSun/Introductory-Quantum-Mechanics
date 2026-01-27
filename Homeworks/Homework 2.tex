@@ -1,0 +1,100 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 2}
+\author{Jeremy Chen}
+\date{January 25, 2026}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}.}]
+\item A quantum system has Hamiltonian $\hat{H}$ with normalized eigenstates $\chi_{n}$ and corresponding energies $E_{n}(n = 1, 2, 3, \dots)$. A linear operator $\hat{Q}$ associated with quantity $Q$ is defined by its action on these states:
+$$\hat{Q}\chi_{1} = \chi_{2},\ \ \ \hat{Q}\chi_{2} = \chi_{1},\ \ \ \hat{Q}\chi_{n} = 0\ \ n > 2$$
+
+\begin{enumerate}[(a)]
+\item Show that $\hat{Q}$ has eigenvalues $\pm 1$  (in addition to zero) and find the corresponding normalized eigenstates $\chi_{\pm}$, in terms of energy eigenstates. Calculate $\braket{H}$ in each of the states $\chi_{\pm}$. 
+
+\color{violet}
+
+If the energies of $E_{n}$ are all positive integers, and for all $n > 2$, $\hat{Q}\chi_{n} = 0$, then $\chi_{1}$ and $\chi_{2}$ can be thought of as a qubit's normalized eigenstates. Assume that $\chi_{1} = \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}$ and $\chi_{2} = \begin{bmatrix}
+0 \\
+1
+\end{bmatrix}$. This means $\hat{Q}\begin{bmatrix}
+1 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+1
+\end{bmatrix}$ and vice versa. Hence, $\hat{Q} = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}$, which has eigenvalues $\pm 1$. The eigenstates are where $\hat{Q}\ket{v} = c * \ket{v}$ where $v$ is an eigenvector of $\hat{Q}$ derived from the eigenvalues. Hence, the normalized eigenstates of $\chi_{\pm}$ are $\ket{\psi_{1}} = \begin{bmatrix}
+1 \\
+1
+\end{bmatrix}$ and $\ket{\psi_{-1}} = \begin{bmatrix}
+-1 \\
+1
+\end{bmatrix}$. In terms of $\chi_{1}$ and $\chi_{2}$, the two normalized eigenstates will be $\frac{\chi_{1} + \chi_{2}}{\sqrt{2}}$ and $\frac{\chi_{1} - \chi_{2}}{\sqrt{2}}$ respectively. Then, the energy expectation values would be $\frac{E_{1} + E_{2}}{2}$. 
+\color{black}
+
+\item A measurement of $Q$ is made at time zero, and the result $+1$ is obtained. The system is then left undisturbed for a time $t$, at which instant another measurement of $Q$ is made. What is the probability that the result will again be $+1$? Show that the probability is zero if the measurement is made when a time $T = \pi\hbar/(E_{2} - E_{1})$ has elapsed (assume $E_{2} - E_{1} > 0$). 
+
+\color{violet}
+The probability that the result is $+1$ again is $\frac{1}{2}$, as given by $\braket{H}$. Ignoring the position of the wavefunction, $\chi(0) = \chi_{+} = \frac{\chi_{1} + \chi_{2}}{\sqrt{2}}$. Given that the time evolution operator $U(t) = e^{i\hat{H}t/\hbar}$, that means $\chi(t) = e^{i\hat{H}t/\hbar}\frac{\chi_{1} + \chi_{2}}{\sqrt{2}} = (e^{\frac{i\hat{H}t}{\hbar}}\chi_{1} + e^{\frac{i\hat{H}t}{\hbar}}\chi_{2})/\sqrt{2}$. The probability will be found from the squared inner product $\braket{\chi_{1} | \chi(t)}$, resulting in $\frac{1 + \cos((E_{2} - E_{1}t)/\hbar)}{2}$. When evaluated for $T = \pi\hbar/(E_{2} - E_{1})$, the result will be $0$. 
+\color{black}
+
+\end{enumerate}
+
+\item Let $\hat{H}$ be a Hamiltonian and $\chi(x)$ any normalized eigenstate with energy $E$.
+
+\begin{enumerate}[(a)]
+\item Show that for any operator $\hat{A}$,
+$$\left\langle \left[ \hat{H}, \hat{A} \right] \right\rangle_{\chi} = 0$$
+
+\color{violet}
+The eigenvalues of the two operators are $\hat{H}\ket{\chi_{n}} = \lambda_{n}\ket{\chi_{n}}$ and $\hat{A}\ket{\chi_{n}} = \mu_{n}\ket{\chi_{n}}$. Given some normalized eigenstate $\chi_{n}$, the commutation relation between the two operators are $a_{n} \left[\hat{H}, \hat{A}\right]\ket{\chi_{n}}$. This could be expanded to $a_{n} (\lambda_{n}\mu_{n} - \mu_{n}\lambda_{n})\ket{\chi_{n}}$, which is 0. Hence, $\left\langle \left[ \hat{H}, \hat{A} \right] \right\rangle_{\chi} = 0$. 
+\color{black}
+
+\item For a particle in one dimension, let $\hat{H} = \hat{T} + \hat{U}$ where $\hat{T} = \hat{p}^{2}/2m$ is the kinetic energy and $\hat{U}$ is any (real) potential. By setting $\hat{A} = \hat{x}$ in the result from (a) and using the canonical commutation relation between position and momentum, show that $\braket{\hat{p}}_{\chi} = 0$.  
+
+\color{violet}
+The commutation relation is set up as $\left[ \hat{H}, \hat{x} \right] = \left( \left[ \frac{\hat{p}^{2}}{2m}, \hat{x} \right] + \left[ \frac{m\omega^{2}x^{2}}{2}, \hat{x} \right] \right)\ket{\chi_{n}}$. This would be simplified down to $\left[ \frac{\hat{p}^{2}}{2m}, \hat{x} \right]\ket{\chi_{n}}$, since the potential and position operator commute ($\frac{m\omega^{2}}{2} \left[ x^{2}, \hat{x} \right] = 0$). Using the canonical commutation relation, the commutation between the kinetic energy and position operator is simplified down to $\frac{-i\hbar}{m}\hat{p}\ket{\chi_{n}}$. Since the results from (a) shows that $\left\langle \left[ \hat{H}, \hat{A} \right] \right\rangle_{\chi} = 0$ for any operator $\hat{A}$, that means the $\braket{\frac{-i\hbar}{m}\hat{p}\ket{\chi_{n}}}$ is 0. Hence, $\braket{\hat{p}}_{\chi} = 0$.  
+\color{black}
+
+\item Now assume further that $U(\hat{x}) = k\hat{x}^{n}$ (with $k$ and $n$ constants). By taking $\hat{A} = \hat{x}\hat{p}$, show that
+$$\braket{\hat{T}}_{\chi} = \frac{n}{n + 2}E, \text{  and  } \braket{\hat{U}}_{\chi} = \frac{2}{n + 2}E$$ 
+
+\end{enumerate}
+
+\item 
+
+\begin{enumerate}
+
+\item Let $\hat{A}$ and $\hat{B}$ be Hermitian operators. Show that $i[\hat{A}, \hat{B}]$ is Hermitian. 
+
+\color{violet}
+Given $\hat{A}$ and $\hat{B}$, $(i[ \hat{A}, \hat{B} ])^{\dagger} = i^{\dagger}(\hat{A}\hat{B} - \hat{B}\hat{A})^{\dagger}$. Distributing the dagger into the parentheses gets $-i(\hat{B}^{\dagger}\hat{A}^{\dagger} - \hat{A}^{\dagger}\hat{B}^{\dagger})$. Since $\hat{A}$ and $\hat{B}$ are Hermitian, $-i(\hat{B}\hat{A} - \hat{A}\hat{B}) = (-i)(-[\hat{A}, \hat{B}]) = i[\hat{A}, \hat{B}]$. Since $i[\hat{A}, \hat{B}] = (i[\hat{A}\hat{B}])^{\dagger}$, it is Hermitian. 
+\color{black}
+
+\item Given a normalized state $\psi$, consider $\|(\hat{A} + i\lambda\hat{B}\psi)\|^{2}$ with $\lambda$ a real variable and deduce that 
+$$\left\langle \hat{A}^{2} \right\rangle \left\langle \hat{B}^{2} \right\rangle \geq \frac{1}{4}\left\vert \left\langle i\left[ \hat{A}, \hat{B} \right] \right\rangle \right\vert^{2}$$
+with all expectation values taken in the state $\psi$. Hence derive the generalized uncertainty relation:
+$$\Delta A \Delta B \geq \frac{1}{2} \left\vert \left\langle \left[ \hat{A}, \hat{B} \right] \right\rangle \right\vert$$
+
+\color{violet}
+Given two Hermitian operators $\hat{A}$ and $\hat{B}$, they would have corresponding eigenvalues $\hat{a}$ and $\hat{b}$ when applied to some normalized state $psi$. Then, $ $
+\color{black}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

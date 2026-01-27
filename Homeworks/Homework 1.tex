@@ -57,7 +57,18 @@ U_{0} & -a < x < a \\
 where $a$ and $U_{0}$ are positive constants. Using matching conditions at $x = \pm a$, find the transmitted wave function $\psi(x, t)$ and probability density $\rho(x, t)$ in the region $x > a$, for an incident wave corresponding to a particle of mass m and energy $E = U_{0}/2$ moving towards the potential barrier from $x < -a$. Express the results in terms of the quantity $k = \sqrt{2mE/\hbar}$. 
 
 \color{violet}
-
+Given some value $k = \sqrt{2mE/\hbar}$, the following will be the cases for the wavefunction as it travels across a step potential.
+$$\psi(x) = \begin{cases}
+Ae^{ikx} + Be^{-ikx} & x < -a \\
+Ce^{-ikx} & -a < x < a \\
+De^{ikx} + Ee^{-ikx} & x > a
+\end{cases}$$
+For the probability densities, assume that $B$ and $E$ are equal to 0. The following cases will be the probability density.
+$$\rho(x) = \begin{cases}
+|A|^{2} & x < -A \\
+|C|^{2} & -a < x < a \\
+|D|^{2} & x > a
+\end{cases}$$
 \color{black}
 
 \item 
