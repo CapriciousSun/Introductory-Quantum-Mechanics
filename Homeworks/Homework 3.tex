@@ -1,0 +1,108 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 3}
+\author{Jeremy Chen}
+\date{January 31, 2026}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}}]
+
+\item Let \textbf{n} be a unit vector with polar coordinates $(\theta, \varphi)$ and let $\sigma$ denote the Pauli matrices. Find the eigenvectors of $\text{\textbf{n}} \cdot \sigma$. Hence show that the state of a spin-$\frac{1}{2}$ particle for which a measurement of spin along \textbf{n} yields $\hbar/2$ with uncertainty is 
+$$\ket{\textbf{n}} = \sin\left( \frac{\theta}{2} \right) e^{i\varphi/2}\ket{\downarrow} + \cos\left( \frac{\theta}{2} \right)e^{-i\varphi/2}\ket{\uparrow}$$
+where $\ket{\uparrow}$ and $\ket{\downarrow}$ are the usual eigenstates of $\hat{S}_{z}$. Obtain the corresponding expression for the eigenstate of $\textbf{n} \cdot \sigma$ with eigenvalue $-\hbar/2$. Explain why $\braket{\uparrow | \textbf{n}} = 0$ at $\theta = \pi$ and why both coefficients have modulus $1/\sqrt{2}$ when $\theta = \pi/2$.  
+
+\color{violet}
+The setup for $\textbf{n} \cdot \sigma = \sum_{i = 1}^{n} \textbf{n}_{i}\sigma_{i}$.
+\begin{gather*}
+\textbf{n} \cdot \sigma = \sin(\theta)\cos(\varphi)\sigma_{x} + \sin(\theta)\sin(\varphi)\sigma_{y} + \cos(\theta)\sigma_{z} \\
+= \begin{bmatrix}
+0 & \sin(\theta)\cos(\varphi) \\
+\sin(\theta)\cos(\varphi) & 0
+\end{bmatrix} + \begin{bmatrix}
+0 & -i(\sin(\theta)\sin(\varphi)) \\
+i(\sin(\theta)\sin(\varphi)) & 0
+\end{bmatrix} + \begin{bmatrix}
+\cos(\theta) & 0 \\
+0 & -\cos(\theta)
+\end{bmatrix} \\
+= \begin{bmatrix}
+\cos(\theta) & \sin(\theta)\cos(\varphi) - i\sin(\theta)\sin(\varphi) \\
+\sin(\theta)\cos(\varphi) + i\sin(\theta)\sin(\varphi) & -\cos(\theta)
+\end{bmatrix} \\
+\begin{bmatrix}
+\cos(\theta) & \sin(\theta)(\cos(\varphi) - i\sin(\varphi)) \\
+\sin(\theta)(\cos(\varphi) + i\sin(\varphi)) & -\cos(\theta)
+\end{bmatrix} \\
+= \begin{bmatrix}
+\cos(\theta) & \sin(\theta)e^{-i\varphi} \\
+\sin(\theta)e^{i\varphi} & -\cos(\theta)
+\end{bmatrix}
+\end{gather*}
+All of the Pauli matrices have eigenvalues $\pm 1$, so the eigenvectors would have the following forms. 
+\begin{gather*}
+|A - I| = \begin{bmatrix}
+\cos(\theta) - 1 & \sin(\theta)e^{-i\varphi} \\
+\sin(\theta)e^{i\varphi} & -\cos(\theta) - 1
+\end{bmatrix} = \begin{bmatrix}
+\frac{\cos(\theta) - 1}{\sin(\theta)e^{-i\varphi}} & 1 \\
+1 & \frac{-\cos(\theta) - 1}{\sin(\theta)e^{i\phi}}
+\end{bmatrix} = 
+\end{gather*}
+\color{black}
+
+\item For the harmonic oscillator calculate the energy eigenfunctions $\psi_{3}(x) = \braket{x | 3}$ and $\psi_{4}(x) = \braket{x | 4}$ explicitly. 
+
+\color{violet}
+The general function for solving some wavefunction at energy level $n$ is $\psi_{n}(x) = \frac{1}{\sqrt{2^{n}}n!}(y - \frac{d}{dy})^{n}\psi_{0}(y)$ where $y = \sqrt{\frac{m\omega}{\hbar}}x$. At the ground state, $\psi_{0}(x) = \left( \frac{m\omega}{\pi\hbar} \right)^{\frac{1}{4}}e^{-\frac{m\omega\pi^{2}}{2\hbar}}$
+\color{black}
+
+\item Consider a 1D quantum harmonic oscillator with classical frequency $\omega$. Define the coherent state $\ket{a}$ by 
+$$\ket{\alpha} = e^{\alpha\hat{a}^{\dagger} - \alpha^{*}\hat{a} }\ket{0}$$
+where $\hat{a}^{\dagger}$, $\hat{a}$ are the raising and lowering operators, $\ket{0}$ is the ground state, and $\alpha \in \mathbb{C}$. 
+
+\begin{enumerate}
+
+\item Show that $\ket{\alpha}$ is an eigenstate of $\hat{a}$ and find its eigenvalue. Compute the inner product between two different coherent states $\ket{\alpha}$ and $\ket{\beta}$. Does the set of all states $\ket{\alpha}$ for all $a \in \mathbb{C}$ form a basis of the Hilbert space?
+
+\color{violet}
+The current form of the coherent state could be reorganized in the following manner, such that $\ket{a}$ would be normalized. 
+$$\ket{\alpha} = e^{\alpha\hat{a}^{\dagger} - \alpha^{*}\hat{a}}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha\hat{a}^{\dagger}}e^{-a^{*}\hat{a}}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}\sum_{n = 0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}} \ket{n} = e^{-\frac{1}{2}|\alpha|^{2}}\sum_{n = 0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}}$$
+By adding $\hat{a}$, the following is the new state.
+$$\hat{a}\ket{\alpha} = e^{-\frac{1}{2}|\alpha|^{2}} \sum_{n = 0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}} \hat{a}\ket{n} = e^{-\frac{1}{2}|\alpha|^{2}} \sum_{n = 1}^{\infty} \frac{\alpha^{n}}{\sqrt{(n - 1)!}} \ket{n - 1} = \alpha\ket{\alpha}$$
+The eigenvalue of $\ket{\alpha}$ is $\alpha$. Since $\ket{\alpha}$ could be represented in its normalized form, so could $\ket{\beta}$. The inner product of $\ket{\alpha}$ and $\ket{\beta}$ is the following
+\begin{gather*}
+\braket{\beta | \alpha} = e^{-\frac{1}{2}|\alpha|^{2} - \frac{1}{2}|\beta|^{2}}\braket{0 | e^{\beta^{*}\hat{a}}e^{\alpha\hat{a}^{\dagger}} | 0} = e^{-\frac{1}{2}|\alpha|^{2} - \frac{1}{2}|\beta|^{2}}\braket{0 | e^{\beta^{*}\hat{a} + \alpha\hat{a}^{\dagger} + \frac{1}{2}\beta^{*}\alpha} | 0} \\
+= e^{-\frac{1}{2}|\alpha|^{2}-\frac{1}{2}|\beta|^{2} + \beta^{*}\alpha}\braket{0 | e^{\alpha\hat{a}^{\dagger}}e^{\beta^{*}\hat{a}} | 0} = e^{-\frac{1}{2}|\alpha|^{2}-\frac{1}{2}|\beta|^{2} + \beta^{*}\alpha}
+\end{gather*}
+Since $\alpha$ is the average position and momentum of the coherent state, it forms a basis of the Hilbert space. 
+\color{black}
+
+\item A quantum state is prepared in state $\ket{\alpha}$ at $t = 0$. Show that it evolves to become a new coherent state $e^{-i\omega t}\ket{e^{-i\omega t}\alpha}$. 
+
+\color{violet}
+
+\color{black}
+
+\item Suppose $\alpha \in \mathbb{R}$. By expressing $\hat{a}$ and $\hat{a}^{\dagger}$ in terms of $\hat{x}$ and $\hat{p}$, sketch the position space wavefunction of $\ket{\alpha}$. 
+
+\color{violet}
+In terms of $\hat{x}$ and $\hat{p}$, $\hat{a}$ and $\hat{a}^{\dagger}$ are expressed like the following
+$$\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left( \hat{x} + \frac{i}{m\omega}\hat{p} \right),\ \ \hat{a}^{\dagger} = \sqrt{\frac{m\omega}{2\hbar}}\left( \hat{x} - \frac{i}{m\omega}\hat{p} \right)$$
+These values of $\hat{a}$ and $\hat{a}^{\dagger}$ can be plugged into $\ket{\alpha}$ to get the following
+\begin{gather*}
+\ket{\alpha} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha\hat{a}^{\dagger}}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha \sqrt{\frac{m\omega}{2\hbar}}\left( \hat{x} - \frac{i}{m\omega}\hat{p} \right)}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha\frac{m\omega}{2\hbar}\hat{x} - \alpha\frac{m\omega}{2\hbar}\frac{i}{m\omega}\hat{p}}\ket{0}
+\end{gather*}
+\color{black}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
