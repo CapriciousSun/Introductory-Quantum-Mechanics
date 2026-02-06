@@ -81,7 +81,11 @@ $$\braket{\hat{T}}_{\chi} = \frac{n}{n + 2}E, \text{  and  } \braket{\hat{U}}_{\
 \item Let $\hat{A}$ and $\hat{B}$ be Hermitian operators. Show that $i[\hat{A}, \hat{B}]$ is Hermitian. 
 
 \color{violet}
-Given $\hat{A}$ and $\hat{B}$, $(i[ \hat{A}, \hat{B} ])^{\dagger} = i^{\dagger}(\hat{A}\hat{B} - \hat{B}\hat{A})^{\dagger}$. Distributing the dagger into the parentheses gets $-i(\hat{B}^{\dagger}\hat{A}^{\dagger} - \hat{A}^{\dagger}\hat{B}^{\dagger})$. Since $\hat{A}$ and $\hat{B}$ are Hermitian, $-i(\hat{B}\hat{A} - \hat{A}\hat{B}) = (-i)(-[\hat{A}, \hat{B}]) = i[\hat{A}, \hat{B}]$. Since $i[\hat{A}, \hat{B}] = (i[\hat{A}\hat{B}])^{\dagger}$, it is Hermitian. 
+Given $\hat{A}$ and $\hat{B}$, $(i[ \hat{A}, \hat{B} ])^{\dagger} = i^{\dagger}(\hat{A}\hat{B} - \hat{B}\hat{A})^{\dagger}$. Distributing the dagger into the parentheses gets $-i(\hat{B}^{\dagger}\hat{A}^{\dagger} - \hat{A}^{\dagger}\hat{B}^{\dagger})$.  
+\begin{gather*}
+-i(\hat{B}\hat{A} - \hat{A}\hat{B}) = (-i)(-[\hat{A}, \hat{B}]) = i[\hat{A}, \hat{B}]
+\end{gather*}
+Since $i[\hat{A}, \hat{B}] = (i[\hat{A}\hat{B}])^{\dagger}$, it is Hermitian. 
 \color{black}
 
 \item Given a normalized state $\psi$, consider $\|(\hat{A} + i\lambda\hat{B}\psi)\|^{2}$ with $\lambda$ a real variable and deduce that 
@@ -90,7 +94,12 @@ with all expectation values taken in the state $\psi$. Hence derive the generali
 $$\Delta A \Delta B \geq \frac{1}{2} \left\vert \left\langle \left[ \hat{A}, \hat{B} \right] \right\rangle \right\vert$$
 
 \color{violet}
-Given two Hermitian operators $\hat{A}$ and $\hat{B}$, they would have corresponding eigenvalues $\hat{a}$ and $\hat{b}$ when applied to some normalized state $psi$. Then, $ $
+Given two Hermitian operators $\hat{A}$ and $\hat{B}$, they would have corresponding eigenvalues $\hat{a}$ and $\hat{b}$ when applied to some normalized state $\psi$. Then, $\left\langle A^{2} \right\rangle$ and $\left\langle B^{2} \right\rangle$ could be represented as $\braket{\psi | a^{2} | \psi}$ and $\braket{\psi | b^{2} | \psi}$. Using the Cauchy-Schwarz inequality, the following inequality could be established
+\begin{gather*}
+\braket{\psi | \hat{a}^{2} | \psi}\braket{\psi | \hat{b}^{2} | \psi} \geq |\braket{\psi_{a} | \psi_{b}}|^{2} \\
+\left\langle \hat{A}^{2} \right\rangle \left\langle \hat{B}^{2} \right\rangle \geq |\braket{\psi_{a} | \psi_{b}}|^{2}
+\end{gather*}
+Since the left hand side of the inequality could be separated into $\braket{\psi | \frac{1}{2}(\hat{a}\hat{b} + \hat{b}\hat{a}) | \psi}$ and $\braket{\psi | \frac{1}{2}[\hat{a}, \hat{b}] | \psi}$, $\left\langle \hat{A}^{2} \right\rangle \left\langle \hat{B}^{2} \right\rangle \geq | \braket{\psi | \frac{1}{2}[\hat{a}\hat{b}] | \psi } |^{2}$. Getting the generalized form $\Delta A  \Delta B$ takes $\braket{\psi | \frac{1}{2}(\hat{a}\hat{b} + \hat{b}\hat{a}) | \psi }$, which is greater or equal to $\frac{1}{2}\left| \left\langle \left[ \hat{A}, \hat{B} \right] \right\rangle \right|$. 
 \color{black}
 
 \end{enumerate}

@@ -47,20 +47,36 @@ i(\sin(\theta)\sin(\varphi)) & 0
 \end{gather*}
 All of the Pauli matrices have eigenvalues $\pm 1$, so the eigenvectors would have the following forms. 
 \begin{gather*}
-|A - I| = \begin{bmatrix}
-\cos(\theta) - 1 & \sin(\theta)e^{-i\varphi} \\
-\sin(\theta)e^{i\varphi} & -\cos(\theta) - 1
+\lambda = 1 \longrightarrow \begin{bmatrix}
+	e^{-i\varpi}(\cot(\theta) + \csc(\theta)) \\
+	1
 \end{bmatrix} = \begin{bmatrix}
-\frac{\cos(\theta) - 1}{\sin(\theta)e^{-i\varphi}} & 1 \\
-1 & \frac{-\cos(\theta) - 1}{\sin(\theta)e^{i\phi}}
-\end{bmatrix} = 
+	e^{-i\varphi}\frac{\cos\left(\frac{\theta}{2}\right)}{\sin\left(\frac{\theta}{2}\right)} \\
+	1
+\end{bmatrix} \\
+\lambda = -1 \longrightarrow \begin{bmatrix}
+e^{-i\varphi}(\cot(\theta) - \csc(\theta))\\
+1
+\end{bmatrix} = \begin{bmatrix}
+-e^{-i\varphi}\frac{\sin\left( \frac{\theta}{2} \right)}{\cos\left(\frac{\theta}{2}\right)}\\
+1
+\end{bmatrix}
 \end{gather*}
+
 \color{black}
 
 \item For the harmonic oscillator calculate the energy eigenfunctions $\psi_{3}(x) = \braket{x | 3}$ and $\psi_{4}(x) = \braket{x | 4}$ explicitly. 
 
 \color{violet}
-The general function for solving some wavefunction at energy level $n$ is $\psi_{n}(x) = \frac{1}{\sqrt{2^{n}}n!}(y - \frac{d}{dy})^{n}\psi_{0}(y)$ where $y = \sqrt{\frac{m\omega}{\hbar}}x$. At the ground state, $\psi_{0}(x) = \left( \frac{m\omega}{\pi\hbar} \right)^{\frac{1}{4}}e^{-\frac{m\omega\pi^{2}}{2\hbar}}$
+The general function for solving some wavefunction at energy level $n$ is $\psi_{n}(x) = \frac{1}{\sqrt{2^{n}}n!}(y - \frac{d}{dy})^{n}\psi_{0}(y)$ where $y = \sqrt{\frac{m\omega}{\hbar}}x$. At the the third excited state, the following is the energy eigenfunction
+\begin{gather*}
+\psi_{3}(x) = \frac{1}{\sqrt{2^{3}3!}}\left(y - \frac{d}{dy}\right)^{3}\psi_{0}(y) = \frac{1}{\sqrt{48}}\left( \sqrt{\frac{m\omega}{\hbar}x} - \frac{d}{dy}  \right)^{3}\psi_{0}\left(\sqrt{\frac{m\omega}{\hbar}}x\right) \\
+= \frac{1}{48}\left( \sqrt{\frac{m\omega}{\hbar}}x - \frac{d}{dy} \right)^{3} \left( \frac{m\omega}{\pi\hbar} \right)^{\frac{1}{4}} e^{-\frac{m\omega}{2\hbar}\frac{m\omega}{\hbar}x^{2}} = \frac{1}{48}\left( \sqrt{\frac{m\omega}{\hbar}}x - \frac{d}{dy} \right)^{3} \left( \frac{m\omega}{\pi\hbar} \right)^{\frac{1}{4}} e^{-\frac{m^{2}\omega^{2}}{2\hbar^{2}}x^{2}} 
+\end{gather*}
+At the fourth excited state, the following is the energy eigenfunction
+\begin{gather*}
+\psi_{4}(x) = \frac{1}{\sqrt{2^{4}4!}} \left( \sqrt{\frac{m\omega}{\hbar}}x - \frac{d}{dy} \right)^{4}\left( \frac{m\omega}{\pi\hbar} \right)^{\frac{1}{4}} e^{-\frac{m^{2}\omega^{2}}{2\hbar^{2}}x^{2}}
+\end{gather*}
 \color{black}
 
 \item Consider a 1D quantum harmonic oscillator with classical frequency $\omega$. Define the coherent state $\ket{a}$ by 
@@ -99,6 +115,14 @@ These values of $\hat{a}$ and $\hat{a}^{\dagger}$ can be plugged into $\ket{\alp
 \begin{gather*}
 \ket{\alpha} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha\hat{a}^{\dagger}}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha \sqrt{\frac{m\omega}{2\hbar}}\left( \hat{x} - \frac{i}{m\omega}\hat{p} \right)}\ket{0} = e^{-\frac{1}{2}|\alpha|^{2}}e^{\alpha\frac{m\omega}{2\hbar}\hat{x} - \alpha\frac{m\omega}{2\hbar}\frac{i}{m\omega}\hat{p}}\ket{0}
 \end{gather*}
+\color{black}
+
+\item Let $\alpha \in \mathbb{C}$ and compute $\braket{\alpha | \hat{p} | \alpha}$. Give a physical interpretation of the coherent state for general complex $\alpha$. Without futher calculation, describe the shape and motion of both the position space and momentum space wavefunctions as time passes. 
+
+\color{violet}
+The position wavefunction of a coherent state is defined as some $\psi_{\alpha}(x) = \braket{x | a}$. The expectation value of $x$ for the wavefunction would be $\int \psi_{\alpha}^{*} x \psi_{\alpha}dx$, which could be written in terms of ladder opperators as $\braket{x} = \braket{\alpha | \sqrt{\frac{2\hbar}{m\omega}}(\hat{a} + \hat{a}^{\dagger}) | \alpha}$. Momentum could be expressed in the same way, but instead $\braket{p} = \braket{\alpha | -i\sqrt{\frac{m\omega\hbar}{2}} (\hat{a} - \hat{a}^{\dagger})| \alpha}$. The it could be calculated like the following
+$$\braket{\hat{p}} = -i\sqrt{\frac{m\omega\hbar}{2}}\braket{\alpha | (\hat{a} - \hat{a}^{\dagger}) | \alpha} = -i\sqrt{\frac{m\omega\hbar}{2}} (\braket{\alpha | \hat{a} | \alpha} - \braket{\alpha | \hat{a}^{\dagger} | \alpha}) = \sqrt{-\frac{m\omega\hbar}{2}} (\alpha - \alpha^{*}) = \sqrt{2m\omega\hbar}\text{Im}(\alpha)$$
+The shape of the position and momentum wavefunctions remains the same as time passes, but they will begin to move towards the right of the graph. 
 \color{black}
 
 \end{enumerate}
