@@ -7,6 +7,7 @@
 \usepackage{xcolor}
 \title{Introductory Quantum Mechanics Homework 4}
 \author{Jeremy Chen}
+\date{Feburary 6, 2026}
 \begin{document}
 	\maketitle
 
@@ -23,8 +24,55 @@ $$\frac{\hbar^{2}\pi^{2}}{2m}\left( \frac{n_{1}^{2}}{a^{2}} + \frac{n_{2}^{2}}{b
 What is the degeneracy of the first excited energy level when a = b = c?
 
 \color{violet}
-Given that the potential inside of the box is 0, the total energy of the particle 
+Given that the potential inside of the box is 0, the total energy of the particle should be zero. So the following would be the form of the time independent Schrödinger equation
+\begin{gather*}
+-\frac{\hbar^{2}}{2m} \left( \frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}} + \frac{\partial^{2}}{\partial z^{2}} \right)X(x)Y(y)Z(z) = EX(x)Y(y)Z(z)
+\end{gather*}
+By using separation of variables, the following would be the form of the Schrödinger equation
+\begin{gather*}
+-\frac{\hbar^{2}}{2m} \left( \frac{1}{X}\frac{\partial^{2}X}{\partial x^{2}} + \frac{1}{Y}\frac{\partial^{2}Y}{\partial y^{2}} + \frac{1}{Z}\frac{\partial^{2}Z}{\partial z^{2}}\right) = E \longrightarrow \frac{1}{X}\frac{\partial^{2}X}{\partial x^{2}} + \frac{1}{Y}\frac{\partial^{2}Y}{\partial y^{2}} + \frac{1}{Z}\frac{\partial^{2}Z}{\partial z^{2}} = -\frac{2mE}{\hbar^{2}}
+\end{gather*}
+If we define $-k_{j}^{2}$ as $\frac{1}{J}\frac{\partial^{2}J}{dj^{2}}$ for each direction, the following would be the new form
+\begin{gather*}
+k_{x}^{2} + k_{y}^{2} + k_{z}^{2} = \frac{2mE}{\hbar^{2}}
+\end{gather*}
+Given some energy level for each wavefunction $n_{i}$, the wavefunctions would be the following
+\begin{gather*}
+X(x) = A\sin\left( \frac{n_{1}\pi x}{a} \right),\ \ Y(y) = B\sin\left( \frac{n_{2}\pi y}{b} \right),\ \ Z(z) = C\sin\left( \frac{n_{3}\pi y}{c} \right)
+\end{gather*}
+Given that a sine function could be defined as some $A\sin(kx)$, using the wavefunctions here, $k_{j}$ could be defined as $\frac{n_{j}\pi}{a}$. Hence, energy would be evaluated the following
+\begin{gather*}
+E = \frac{\hbar^{2}}{2m} \left(\left( \frac{n_{1}\pi}{a} \right)^{2} + \left( \frac{n_{2}\pi}{b} \right)^{2} + \left( \frac{n_{3}\pi}{c} \right)^{2}\right) = \frac{\hbar^{2}\pi^{2}}{2m} \left( \frac{n_{1}^{2}}{a^{2}} + \frac{n_{2}^{2}}{b^{2}} + \frac{n_{3}^{2}}{c^{2}}  \right)
+\end{gather*}
+If $a = b = c$, then the three possible first excited states, $\Psi_{211}$, $\Psi_{121}$, and $\Psi_{112}$, will all be degenerate. 
 \color{black}
+
+\item 
+
+\begin{enumerate}[a)]
+
+\item Let $\chi(r)$ be a energy eigenfunction that depends only on the radial coordinate $r$ (in three dimensions). Write down an expression for $\nabla\chi$ and deduce that $\nabla^{2}\chi = \chi'' + (2/r)\chi' = (r\chi))''/r$. Show that $\hat{p}^{2}\chi = (\hat{p}_{r})^{2}\chi$, where $\hat{p}_{r}$ is a first-order differential operator involving $r$. Is $\hat{p}_{r}$ hermitian?
+
+\color{violet}
+The spherical form of the energy eigenfunction for the Schrödinger equation is the following
+\begin{gather*}
+\psi_{r, \theta, \phi} = R(r)Y_{l}^{m}(\theta, \phi)
+\end{gather*}
+Witht this, the Schrödinger equation in radial form is 
+\begin{gather*}
+-\frac{\hbar^{2}}{2mr^{2}} \left( \frac{d^{2}}{dr^{2}} r^{2} + l(l + 1) + V(r) \right)R(r) = ER(r)
+\end{gather*}
+Which means the radial energy eigenfunction is 
+\begin{gather*}
+\chi(r) = rR(r)
+\end{gather*}
+Putting the energy eigenfunction back into the Schrödinger equation gets the following
+\begin{gather*}
+-\frac{\hbar^{2}}{2m}\left( \frac{d^{2}}{dr^{2}} + \frac{l(l + 1)}{r^{2}} + V(r) \right)u(r) = Eu(r)
+\end{gather*}
+\color{black}
+
+\end{enumerate}
 
 \end{enumerate}
 
