@@ -1,0 +1,72 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{bbold}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 5}
+\author{Jeremy Chen}
+
+\newcommand{\lie}[1]{\operatorname{\mathfrak{#1}}}
+
+\begin{document}
+	\maketitle
+	
+\begin{enumerate}[\textbf{Problem \arabic{enumi}.}]
+
+\item Let $\hat{x}(t) = e^{i\hat{H}t/\hbar}\hat{x}e^{-i\hat{H}t/\hbar}$ and $\hat{p}(t) = e^{i\hat{H}t/\hbar}\hat{p}e^{-i\hat{H}t/\hbar}$, where $\hat{x}$ and $\hat{p}$ are the usual position and momentum operators, and $\hat{H}$ is the Hamiltonian of the 1D harmonic oscillator. Show that
+$$\hat{x}(t) = \hat{x}\cos(\omega t) + \frac{1}{m\omega}\hat{p}\sin(\omega t),\ \ \hat{p}(t) = \hat{p}\cos(\omega t) - m\omega\hat{x}\sin(\omega t)$$
+Interpret this result. Evaluate $[\hat{x}(t), \hat{p}(t)]$. 
+
+\color{violet}
+The Hamiltonian of the 1D harmonic oscillator is given by
+$$\hat{H} = -\frac{\hbar^{2}}{2m}\frac{d^{2}}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2} = \frac{\hat{p}^{2}}{2m} + \frac{1}{2}m\omega^{2}x^{2}$$
+The given representation of the operators is in the Heisenberg picture. Then, the first and second derivatives of the time-dependent operators could be solved for. 
+\begin{gather*}
+\frac{d\hat{x}}{dt} = \frac{i}{\hbar}[\hat{H}, \hat{x}] = \frac{i}{\hbar} \left[ \frac{\hat{p}^{2}}{2m}, \hat{x} \right] = \frac{\hat{p}}{m} \\
+\frac{d\hat{p}}{dt} = \frac{i}{\hbar} \left[\hat{H}, \hat{x} \right] = \frac{i}{\hbar} \left[ \frac{1}{2}m\omega^{2}x^{2}, \hat{p} \right] = -m\omega^{2}\hat{x}
+\end{gather*}
+Then, the second derivative of position is the following
+$$\frac{d^{2}\hat{x}}{dt^{2}} = \frac{d}{dt} \frac{\hat{p}}{m} = -\omega^{2}\hat{x}$$
+This is the differential equation describing some simple harmonic oscillator, where the general solution is $\omega$ for this case. So the solution to $\hat{x}(t)$ is
+$$\hat{x}(t) = A\cos(\omega t) + B\sin(\omega t)$$
+The first initial condition $t = 0$, $\hat{x}(0) = A$. The second initial condition uses $\hat{x}'(t) = -\omega A\sin(\omega t) + \omega B\cos(\omega t)$, where $\hat{x}'(0) = \omega B$. The result is also equal to $\frac{\hat{p}}{m}$, so $B = \frac{\hat{p}}{m\omega}$. Evaluating for $\hat{x}(t)$ gets
+$$\hat{x}(t) = \hat{x}\cos(\omega t) + \frac{\hat{p}}{m\omega}\sin(\omega t)$$
+and evaluating for $\hat{p}(t) = \hat{x}'(t)$ gets
+$$\hat{p}(t) = \frac{\hat{p}}{m}\cos(\omega t) - \omega\hat{x}\sin(\omega t) = \hat{p}\cos(\omega t) - m\omega\hat{x}\sin(\omega t)$$
+\color{black}
+
+\item Consider a 2d isotropic harmonic oscillator of frequency $\omega$
+
+\begin{enumerate}
+
+\item Construct combinations of the raising/lowering operators for the 2d oscillator that satisfy the $\lie{so}(3)$ algebra. 
+
+\color{violet}
+
+\color{black}
+
+\item Show how all oscillator states fit into representations of $\lie{so}(3)$. 
+
+\end{enumerate}
+
+\item For a spin-1/2 particle, the spin operator is $\hat{\text{\textbf{S}}} = \hbar\boldsymbol{\sigma}/2 $. 
+
+\begin{enumerate}
+
+\item Show that for any $\text{\textbf{a}, \textbf{b}} \in \mathbb{R}^{3}$
+$$(\text{\textbf{a}} \cdot \boldsymbol{\sigma})(\text{\textbf{b}} \cdot \boldsymbol{\sigma}) = (\text{\textbf{a}} \cdot \text{\textbf{b}})\mathbb{1} - i(\text{\textbf{a}} \times \text{\textbf{b}}) \cdot \boldsymbol{\sigma}$$
+
+\item Show that
+$$e^{-i\boldsymbol{\alpha} \cdot \hat{\text{\textbf{S}}}} = \cos\left( \frac{\alpha}{2} \right)\mathbb{1} - i\sin\left( \frac{\alpha}{2} \right)\hat{\boldsymbol{\alpha}} \cdot \boldsymbol{\sigma}$$
+
+\end{enumerate}
+
+\item Work out the example of adding angular momentum of two systems with $j_{1} = j_{2} = 1$ from pg. 240 in detail.
+
+\end{enumerate}	
+
+\end{document}
