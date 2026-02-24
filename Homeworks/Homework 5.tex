@@ -46,7 +46,9 @@ $$\hat{p}(t) = \frac{\hat{p}}{m}\cos(\omega t) - \omega\hat{x}\sin(\omega t) = \
 \item Construct combinations of the raising/lowering operators for the 2d oscillator that satisfy the $\lie{so}(3)$ algebra. 
 
 \color{violet}
-
+Given the angular momentum operators are $\hat{L} = \{ \hat{L}_{1}, \hat{L}_{2}, \hat{L}_{3} \}$. One commutation relation is $[\hat{L}^{2}, \hat{L}_{i} ] = 0$, so a set of commuting operators $\{ \hat{L}^{2}, \hat{L}_{3} \}$ could be constructed. Since $\hat{L}_{1}$ and $\hat{L}_{2}$ are not used, they could be used to construct the raising and lowering operators. Given that the raisng/lowering operators of $\{ \hat{x}, \hat{p} \}$ is defined as $\hat{a} = \frac{1}{2m\hbar\omega} (m\omega\hat{x} \pm i\hat{p})$, the operators for angular momentum could be defined as
+$$\hat{L}_{\pm} = \hat{L}_{1} \pm i\hat{L}_{2}$$. 
+Given these two operators, the original set of commuting operators could be constructed using them. 
 \color{black}
 
 \item Show how all oscillator states fit into representations of $\lie{so}(3)$. 
@@ -59,6 +61,10 @@ $$\hat{p}(t) = \frac{\hat{p}}{m}\cos(\omega t) - \omega\hat{x}\sin(\omega t) = \
 
 \item Show that for any $\text{\textbf{a}, \textbf{b}} \in \mathbb{R}^{3}$
 $$(\text{\textbf{a}} \cdot \boldsymbol{\sigma})(\text{\textbf{b}} \cdot \boldsymbol{\sigma}) = (\text{\textbf{a}} \cdot \text{\textbf{b}})\mathbb{1} - i(\text{\textbf{a}} \times \text{\textbf{b}}) \cdot \boldsymbol{\sigma}$$
+
+\color{violet}
+
+\color{black}
 
 \item Show that
 $$e^{-i\boldsymbol{\alpha} \cdot \hat{\text{\textbf{S}}}} = \cos\left( \frac{\alpha}{2} \right)\mathbb{1} - i\sin\left( \frac{\alpha}{2} \right)\hat{\boldsymbol{\alpha}} \cdot \boldsymbol{\sigma}$$
