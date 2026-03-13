@@ -1,0 +1,47 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 6}
+\author{Jeremy Chen}
+\date{March 5, 2026}
+\begin{document}
+	\maketitle
+	
+\begin{enumerate}[\textbf{Problem \arabic{enumi}.}]
+
+\item The Schrödinger equation for a particle of mass $m$ and charge $q$ in an electromagnetic field is
+$$i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^{2}}{2m}\left( \nabla - \frac{iq}{\hbar}\textbf{A} \right)^{2} \psi + q\varphi\psi$$
+Under a gauge transformation,
+$$\varphi \rightarrow \varphi - \frac{\partial \alpha}{\partial t},\ \ \textbf{A} \rightarrow \textbf{A} + \nabla \alpha$$
+Show that, with a suitable transformation of $\psi$, the Schrödinger equation transforms into itself. Show that the probability density $|\psi|^{2}$ is gauge invariant. Show that the mechanical momentum $\boldsymbol{\pi} = -i\hbar\nabla q\textbf{A}$ is gauge invariant. What is the physical interpretation of the mechanical momentum?
+
+\color{violet}
+
+\color{black}
+
+\item A particle of charge $q$ moving in a magnetic field $\textbf{B} = \nabla \times \textbf{A} = (0, 0, B)$ is described by the Hamiltonian
+$$H = \frac{1}{2m}(\textbf{p} - q\textbf{A})^{2}$$
+where $\textbf{P}$ is the canonical momentum. Show that the mechanical momentum $\boldsymbol{\pi} = \textbf{p} - q\textbf{A}$ obeys
+$$a = \frac{1}{\sqrt{2q\hbar B}}(\pi_{x} + i\pi_{y}) \text{  and  } a^{\dagger} = \frac{1}{\sqrt{2q\hbar B}}(\pi_{x} - i\pi_{y})$$
+What commutation relations do $a$ and $a^{\dagger}$ obey? Write the Hamiltonian in terms of $a$ and $a^{\dagger}$ and hence solve for the spectrum.
+
+\color{violet}
+\color{black}
+
+\item A particle of charge $e$ and spin 1/2 with g-factor $g = 2$ moves in the $(x, y)$-plane in the presence of a magnetic field of the form $B = (0, 0, B)$. Show that the Hamiltonian can be written as
+$$H = \frac{1}{2m}Q^{2} \text{  with  } Q = (\pi_{x}\sigma_{x} + \pi_{y}\sigma_{y})$$
+where $\boldsymbol{\sigma}$ are the Pauli matrices and $\boldsymbol{\pi}$ is the mechanical momentum defined above. 
+
+Confirm that $Q$ is Hermitian. Show that zero energy states are annihilated by $Q$. Show that $\ket{\psi}$ and $Q\ket{\psi}$ are degenerate and hence deduce that the lowest Landau level contains half the states of the higher Landau levels. What is the physical interpretation of this? (Hint: consider the effect of Zeeman splitting on the Landau levels.)
+
+\color{violet}
+\color{black}
+
+\end{enumerate}
+	
+\end{document}
