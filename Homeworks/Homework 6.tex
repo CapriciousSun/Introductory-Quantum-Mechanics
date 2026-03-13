@@ -21,16 +21,78 @@ $$\varphi \rightarrow \varphi - \frac{\partial \alpha}{\partial t},\ \ \textbf{A
 Show that, with a suitable transformation of $\psi$, the Schrödinger equation transforms into itself. Show that the probability density $|\psi|^{2}$ is gauge invariant. Show that the mechanical momentum $\boldsymbol{\pi} = -i\hbar\nabla q\textbf{A}$ is gauge invariant. What is the physical interpretation of the mechanical momentum?
 
 \color{violet}
-
+Given the gauge transformation, the Schrödinger equation would be rewritten as
+\begin{gather*}
+H\psi = \frac{1}{2m} \left( -i\hbar\nabla - q\text{\textbf{A}}(\text{\textbf{x}}, t) \right)^{2}\psi + q\left( \varphi(\textbf{x}, t) - \frac{\partial \alpha}{\partial t} \right)\psi
+\end{gather*}
+where the Hamiltonian is given by
+\begin{gather*}
+H = \frac{(p - q\textbf{A})^{2}}{2m} + q\varphi
+\end{gather*}
+Equation 9.14 gives the wavefunction in the form
+$$\psi(\textbf{x}, t) \rightarrow e^{iq\alpha(\textbf{x}, t)/\hbar}\psi(\textbf{x}, t)$$
+The probability density for $|\psi|^{2}$ is
+\begin{gather*}
+|\psi|^{2} = e^{iq\alpha(\textbf{x}, t)/\hbar}\psi(\textbf{x}, t) e^{-iq\alpha(\textbf{x}, t)/\hbar}\psi(\textbf{x}, t) = \psi(\textbf{x}, t)^{2}
+\end{gather*}
+which means the transformation doesn't affect the probability. $e^{iq\alpha(\textbf{x}, t)/\hbar}$ could be denoted as $a$. The Schrödinger equation could then be rewritten as
+\begin{gather*}
+i\frac{\partial a}{\partial t} = -qa\frac{\partial \alpha}{\partial t} + a(q\nabla\alpha)^{2} - a\frac{(p - qA)(q\nabla f)}{m}
+\end{gather*}
+The left-hand side of the Schrödinger equation would transform as well
+\begin{gather*}
+i\hbar\frac{\partial \psi}{\partial t} \rightarrow -qe^{iq\alpha(\textbf{x}, t)/\hbar}\frac{\partial \alpha}{\partial t}\psi + ie^{iq\alpha(\textbf{x}, t)/\hbar} \frac{\partial \psi}{\partial t}
+\end{gather*}
+So the first terms of both expressions would cancel out, leaving
+\begin{gather*}
+(p - qA - q\nabla\alpha)a = a(p - q\textbf{A})
+\end{gather*}
+So the transformation of the Schrödinger equation is given by
+\begin{gather*}
+\frac{(p - q\textbf{A})^{2}}{2m}\psi(\textbf{x}, t) \rightarrow e^{iq\alpha(\textbf{x}, t)/\hbar}\frac{(p - q\textbf{A})^{2}}{2m}\psi(\textbf{x}, t)
+\end{gather*}
+showing that the Schrödinger equation transforms back into itself. The mechanical momentum $\boldsymbol{\pi}$ is part of the Schrödinger equation's, since $(-i\hbar\nabla - q\textbf{A}(\textbf{x}, t))^{2} = -\hbar^{2}\nabla^{2} + 2i\hbar\nabla q\textbf{A}(\textbf{x}, t) + q^{2}\textbf{A}(\textbf{x}, t)^{2}$, and since the Schrödinger equation itself is gauge invariant, so is the mechanical momentum. The physical interpretation of the mechanical momentum is some directional momentum as opposed to some magnitude. 
 \color{black}
 
-\item A particle of charge $q$ moving in a magnetic field $\textbf{B} = \nabla \times \textbf{A} = (0, 0, B)$ is described by the Hamiltonian
+\item A particle of charge $q$ moving in a magnetic field $\textbf{B} = \boldsymbol{\nabla} \times \textbf{A} = (0, 0, B)$ is described by the Hamiltonian
 $$H = \frac{1}{2m}(\textbf{p} - q\textbf{A})^{2}$$
 where $\textbf{P}$ is the canonical momentum. Show that the mechanical momentum $\boldsymbol{\pi} = \textbf{p} - q\textbf{A}$ obeys
+$$[\pi_{x}, \pi_{y}] = iq\hbar B$$
+Define
 $$a = \frac{1}{\sqrt{2q\hbar B}}(\pi_{x} + i\pi_{y}) \text{  and  } a^{\dagger} = \frac{1}{\sqrt{2q\hbar B}}(\pi_{x} - i\pi_{y})$$
 What commutation relations do $a$ and $a^{\dagger}$ obey? Write the Hamiltonian in terms of $a$ and $a^{\dagger}$ and hence solve for the spectrum.
 
 \color{violet}
+Given the mechanical momentum operator, the commutation relation between $\pi_{x}$ and $\pi_{y}$ is
+\begin{gather*}
+[\pi_{x}, \pi_{y}] = [\textbf{p}_{x} - q\textbf{A}_{x}, \textbf{p}_{y} - q\textbf{A}_{y}]
+\end{gather*}
+using the commutator identities, gets
+\begin{gather*}
+[\pi_{x}, \pi_{y}]\psi = [\textbf{p}_{x}, \textbf{p}_{y}]\psi + [\textbf{p}_{x}, -q\textbf{A}_{y}]\psi + [-q\textbf{A}_{x}, \textbf{p}_{y}]\psi + [-q\textbf{A}_{x}, -q\textbf{A}_{y}]\psi = [\textbf{p}_{x}, -q\textbf{A}_{y}]\psi + [-q\textbf{A}_{x}, \textbf{p}_{y}]\psi \\
+= -q[\textbf{p}_{x}, \textbf{A}_{y}] + q[\textbf{p}_{y}, \textbf{A}_{x}]
+\end{gather*}
+Given that $[p_{i}, A_{i}] = -i\hbar\frac{\partial A_{i}}{\partial x_{i}}$,
+\begin{gather*}
+[\pi_{x}, \pi_{y}] = -q(-i\hbar\nabla_{x}\textbf{A}_{y}) + q(-i\hbar\nabla_{y}\textbf{A}_{x}) = i\hbar q(\nabla_{x}\textbf{A}_{y} - \nabla_{y}\textbf{A}_{x})
+\end{gather*}
+Given that $\textbf{B} = \boldsymbol{\nabla} \times \textbf{A}$, $\textbf{B} = \nabla_{x}\textbf{A}_{y} - \nabla_{y}\textbf{A}_{x}$, so the final form of $[\pi_{x}, \pi_{y}]$ is $i\hbar q\textbf{B}$. The commutation $[a, a^{\dagger}]$ is evaluated as
+\begin{gather*}
+[a, a^{\dagger}] = \frac{1}{2q\hbar\textbf{B}}([\pi_{x} + i\pi_{y}, \pi_{x} - i\pi_{y}]) = \frac{1}{2q\hbar\textbf{B}}(-i[\pi_{x}, \pi_{y}] - i[\pi_{x}, \pi_{y}])
+\end{gather*}
+Plugging in $i\hbar q\textbf{B}$ gets
+\begin{gather*}
+[a, a^{\dagger}] = \frac{-2i}{2q\hbar\textbf{B}}(i\hbar q\textbf{B}) = 1
+\end{gather*}
+The Hamiltonian is given by $H = \frac{1}{2m}(\pi_{x}^{2} + \pi_{y}^{2} + \pi_{z}^{2})$, and $a^{\dagger}a$ is given by
+\begin{gather*}
+a^{\dagger}a = \frac{1}{2q\hbar\textbf{B}}(\pi_{x} - i\pi_{y})(\pi_{x} + i\pi_{y}) = \frac{1}{2q\hbar\textbf{B}}(\pi_{x}^{2} + \pi_{y}^{2} - \hbar q\textbf{B})
+\end{gather*}
+So the Hamiltonian could be rewritten as
+\begin{gather*}
+H = \frac{1}{2m}(2\hbar q\textbf{B}a^{\dagger}a + \hbar q\textbf{B} + \pi_{z}^{2}) = \frac{\hbar q\textbf{B}}{2m}(2a^{\dagger}a + 1) + \frac{\pi_{z}}{2m} = \frac{\hbar q\textbf{B}}{m}\left( a^{\dagger}a + \frac{1}{2} \right) + \frac{\pi_{z}^{2}}{2m}
+\end{gather*} 
+The energy spectrum is then solved where $a^{\dagger}a = n$, so $E_{n} = \frac{\hbar q\textbf{B}}{m}(n + \frac{1}{2}) + \frac{\pi_{z}^{2}}{2m}$
 \color{black}
 
 \item A particle of charge $e$ and spin 1/2 with g-factor $g = 2$ moves in the $(x, y)$-plane in the presence of a magnetic field of the form $B = (0, 0, B)$. Show that the Hamiltonian can be written as
@@ -40,6 +102,31 @@ where $\boldsymbol{\sigma}$ are the Pauli matrices and $\boldsymbol{\pi}$ is the
 Confirm that $Q$ is Hermitian. Show that zero energy states are annihilated by $Q$. Show that $\ket{\psi}$ and $Q\ket{\psi}$ are degenerate and hence deduce that the lowest Landau level contains half the states of the higher Landau levels. What is the physical interpretation of this? (Hint: consider the effect of Zeeman splitting on the Landau levels.)
 
 \color{violet}
+The initial Hamiltonian $H = \frac{1}{2m}(\textbf{p} - q\textbf{A})^{2}$ is the starting form, but it needs to be modified with Hamiltonian of a constant magnetic field,
+\begin{gather*}
+H = \frac{1}{2m}(\textbf{p} - q\textbf{A})^{2} - \frac{e\hbar}{2m}\boldsymbol{\sigma} \cdot \textbf{B}
+\end{gather*}
+Given that the field is in the $z$ direction, only $\sigma_{z}$ needs to be considered. In the previous question, $\boldsymbol{\pi} = \textbf{p} - q\textbf{A}$, so that could be plugged into this expression, giving
+\begin{gather*}
+H = \frac{1}{2m}(\boldsymbol{\pi}^{2} - e\hbar\sigma_{z} \cdot \textbf{B})
+\end{gather*}
+Looking at $Q$, evaluating for that gets
+\begin{gather*}
+Q^{2} = (\pi_{x}\sigma_{x} + \pi_{y}\sigma_{y})^{2} = \pi_{x}^{2}\sigma_{x} + \pi_{y}^{2}\sigma_{y}^{2} + \pi_{x}\pi_{y}\sigma_{x}\sigma_{y} + \pi_{y}\pi_{x}\sigma_{y}\sigma_{x}
+\end{gather*}
+With the Pauli identities, the expression could be simplified down to
+\begin{gather*}
+Q^{2} = \pi_{x}^{2} + \pi_{y}^{2} + i\sigma_{z}[\pi_{x}, \pi_{y}] = \pi_{x}^{2} + \pi_{y}^{2} - e\hbar\sigma_{z} \cdot \textbf{B}
+\end{gather*}
+This is the same as $\boldsymbol{\pi}^{2} - e\hbar\sigma_{z} \cdot \textbf{B}$, so $H = \frac{1}{2m}Q^{2}$. $Q$ is Hermitian, since $Q^{\dagger} = (\pi_{x}\sigma_{x} + \pi_{y}\sigma_{y})^{\dagger} = \sigma_{x}^{\dagger}\pi_{x}^{\dagger} + \sigma_{y}^{\dagger}\pi_{y}^{\dagger}$. This is equivalent to $\pi_{x}\sigma_{x} + \pi_{y}\sigma_{y}$ since $\pi$ and $\sigma$ are all Hermitian and follow commutation relations. The zero energy state is $\ket{\psi_{0}}$, so the expectation value of having an operator $H = \frac{1}{2m}Q^{2}$ is
+\begin{gather*}
+\braket{\psi_{0} | H | \psi_{0}} = \frac{1}{2m} \braket{\psi_{0} | Q^{2} | \psi_{0}} = \frac{1}{2m} \braket{Q\psi_{0} | Q\psi_{0}} = 0
+\end{gather*} 
+The energy of the ground state should be zero, so $Q$ acting on $\psi_{0}$ here would always be 0. The Hamiltonian of $Q$ acting on a state $\ket{\psi}$ is
+\begin{gather*}
+H(Q\ket{\psi}) = \frac{1}{2m}Q^{2}(Q\ket{\psi}) = Q\left( \frac{1}{2m} Q^{2}\ket{\psi} \right) = Q(H\ket{\psi}) = H(Q\ket{\psi})
+\end{gather*}
+Since the energy is non-zero, $Q\ket{\psi}$ cannot be zero so it must share an energy eigenstate with $E$, hence it's degenerate with $\ket{\psi}$. The lowest Landau state has $Q\ket{\psi_{0}} = 0$, whereas the higher Landau states form pairs with $\ket{\psi}$, so the lowest state will have half as many states as higher ones. 
 \color{black}
 
 \end{enumerate}
