@@ -1,0 +1,112 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 7}
+\author{Jeremy Chen}
+\date{20/03/2026}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}}]
+
+\item A harmonic oscillator of mass $m$, frequency $\omega$, and electric charge $e$ is perturbed by a constant electric field of strength $\mathcal{E}$, resulting in a new term $H' = -e\mathcal{E}x$ in the Hamiltonian. Calculate the change in energy levels to order $\mathcal{E}^{(2)}$ and compare with the exact result. 
+
+\color{violet}
+The total energy level, to order $\mathcal{E}^{(2)}$, requires
+\begin{gather*}
+E \approx E_{n}^{(0)} + E_{n}^{(1)} + E_{n}^{(2)}
+\end{gather*}
+Given that the system is a harmonic oscillator, the energy of the unperturbed Hamiltonian is
+\begin{gather*}
+H_{0} = \frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2}x^{2}
+\end{gather*}
+where the energy is
+\begin{gather*}
+E_{n}^{(0)} = \left( n + \frac{1}{2} \right)\hbar\omega
+\end{gather*}
+The first perturbed Hamiltonian is
+\begin{gather*}
+E_{n}^{(1)} = \braket{n | H' | n} = \braket{n | -e\mathcal{E}x | n} = -e\mathcal{E}\braket{n | x | n} = -e\mathcal{E}\sqrt{\frac{\hbar}{2m\omega}} \braket{n | (a + a^{\dagger}) | n} = 0
+\end{gather*}
+The second perturbed Hamiltonian is
+\begin{gather*}
+E_{n}^{(2)} = \braket{n | H' - E_{n}^{(1)} | \psi_{n}^{(1)}} = \braket{n | H' | \psi_{n}^{(1)}} = \sum_{m \neq n} \frac{\braket{m | H' | n}}{E_{n}^{(0)} - E_{m}^{(0)}}\braket{n | H' | m} = \sum_{m \neq n} \frac{|\braket{m | H' | n}|^{2}}{E_{n}^{(0)} - E_{m}^{(0)}} \\
+= \sum_{m \neq n} \frac{|-e\mathcal{E}\braket{m | x | n}|^{2}}{E_{n}^{(0)} - E_{m}^{(0)}} = \sum_{m \neq n} \frac{|-e\mathcal{E}\sqrt{\frac{\hbar}{2m\omega}}\braket{m | (a + a^{\dagger}) | n}|^{2}}{E_{n}^{(0)} - E_{m}^{(0)}} \\
+= \frac{|-e\mathcal{E}\sqrt{\frac{\hbar}{2m\omega}}\braket{n - 1 | (a + a^{\dagger}) | n}|^{2}}{E_{n}^{(0)} - E_{n - 1}^{(0)}} + \frac{|-e\mathcal{E}\sqrt{\frac{\hbar}{2m\omega}}\braket{n + 1 | (a + a^{\dagger}) | n}|^{2}}{E_{n}^{(0)} - E_{n + 1}^{(0)}} = \frac{e^{2}\mathcal{E}^{2}\frac{\hbar}{2m\omega}n}{E_{n}^{(0)} - E_{n - 1}^{(0)}} + \frac{e^{2}\mathcal{E}^{2}\frac{\hbar}{2m\omega}(n + 1)}{E_{n}^{(0)} - E_{n + 1}^{(0)}} \\
+= \frac{e^{2}\mathcal{E}^{2}\frac{\hbar}{2m\omega}n}{\hbar\omega} + \frac{e^{2}\mathcal{E}^{2}\frac{\hbar}{2m\omega}(n + 1)}{-\hbar\omega} = \frac{e^{2}\mathcal{E}^{2}}{2m\omega^{2}}(n - n - 1) = -\frac{e^{2}\mathcal{E}^{2}}{2m\omega^{2}}
+\end{gather*}
+The exact Hamiltonian is
+\begin{gather*}
+H = H_{n}^{(0)} + H' = \frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2}x^{2} - e\mathcal{E}x = \frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2} \left( x^{2} - \frac{2e\mathcal{E}}{m\omega^{2}}x \right) \\
+= \frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2} \left( x^{2} - \frac{2e\mathcal{E}}{m\omega^{2}}x + \left( \frac{e\mathcal{E}}{m\omega^{2}} \right)^{2} - \left( \frac{e\mathcal{E}}{m\omega^{2}} \right)^{2} \right) =  \frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2} \left( x - \frac{e\mathcal{E}}{m\omega^{2}} \right)^{2} - \frac{e^{2}\mathcal{E}^{2}}{2m\omega^{2}}
+\end{gather*}
+which is the same as the perturbed Hamiltonian. The energy of both would be
+\begin{gather*}
+E_{n} = \left( n + \frac{1}{2} \right)\hbar\omega - \frac{e^{2}\mathcal{E}^{2}}{2m\omega^{2}}
+\end{gather*}
+\color{black}
+
+\item A particle of spin 1/2 is at rest in a magnetic field $B$ parallel to the $z$-axis. A small additional magnetic field $B'$ is then switched on parallel to the $x$-axis, so that the Hamiltonian becomes
+$$H = -\frac{1}{2m}\hbar\mu(B\sigma_{3} + B'\sigma_{1})$$
+where $\mu$ is a constant. Starting from the energy levels and eigenstates when $B' = 0$, use perturbation theory to calculate the corrections to the energies to order $B^{(2)}$ and compare with the exact answer.
+
+\color{violet}
+Given the Hamiltonian, the first term would be the unperturbed state and the second term would be the perturbation. When $B' = 0$, only the unperturbed Hamiltonian would exist, so the full Hamiltonian is
+\begin{gather*}
+H_{0} = -\frac{\hbar\mu B}{2m}\sigma_{3} = -\frac{\hbar\mu B}{2m}\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
+\end{gather*}
+So the eigenstates are $E_{0}^{(0)}$ and $E_{1}^{(0)}$, which equal $-\frac{\hbar\mu B}{2m} \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}$ and $-\frac{\hbar\mu B}{2m} \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}$ respectively. 
+\color{black}
+
+\item Using a non-Gaussian trial wavefunction of your choice, estimate the ground state energy of the quartic oscillator with Hamiltonian
+$$H = -\frac{d^{2}}{dx^{2}} + x^{4}$$
+and compare your result with that obtained with a Gaussian wavefunction. What motivated your choice?
+
+\textit{(Suggestions: You could try $\psi = \cos(\pi x/2\alpha)$ or $\psi = (\alpha^{2} - x^{2})$ for $|x| < \alpha$ and vanishing outside this interval.)}
+
+\color{violet}
+Using $\psi = (\alpha^{2} - x^{2})$ where $|x| < a$ gives the following boundaries
+\begin{gather*}
+\psi = \begin{cases}
+\alpha^{2} - x^{2} & |x| < \alpha \\
+0 & \text{everywhere else}
+\end{cases}
+\end{gather*}
+Normalizing for the wavefunction gets
+\begin{gather*}
+1 = \int_{-\alpha}^{\alpha} A^{2}(\alpha^{2} - x^{2})^{2} dx = A^{2} \int_{-\alpha}^{\alpha} \alpha^{4} - 2\alpha^{2}x^{2} + x^{4} dx = A^{2} \left. \left( \alpha^{4}x - \frac{2}{3}\alpha^{2}x^{3} + \frac{1}{5}x^{5} \right) \right|_{-\alpha}^{\alpha}
+\end{gather*}
+This gives $A = \sqrt{\frac{15}{16\alpha^{5}}}$. So, the wavefunction is $\psi(x; \alpha) = \sqrt{\frac{15}{16\alpha^{5}}} (\alpha^{2} - x^{2})$. So the energy in terms of $\alpha$ is
+\begin{gather*}
+E(\alpha) = \frac{15}{16\alpha^{5}} \int 4x^{2} (\alpha^{2} - x^{2}) dx = \frac{15}{16\alpha^{5}} \int_{-\alpha}^{\alpha} 4x^{2}\alpha^{2} - 4x^{4} dx = \frac{15}{16\alpha^{5}} \left. \left( \frac{4}{3}x^{3}\alpha^{2} - \frac{4}{5}x^{5} \right) \right|_{-\alpha}^{\alpha} \\
+= \frac{15}{16\alpha^{5}} 2\left( \frac{4}{3}\alpha^{5} - \frac{4}{5}\alpha^{5} \right)
+\end{gather*}
+\color{black}
+
+\item The Hamiltonian for a single electron orbiting a nucleus of charge $Z$ is
+$$H = \frac{\textbf{p}^{2}}{2m} - \frac{Ze^{2}}{4\pi\epsilon_{0}r}$$
+Use the variational method with the trial wavefunction $\psi_{\alpha}(r) = e^{-\alpha r/a_{0}}$ where $\alpha$ is a variational parameter and $a_{0} = 4\pi\epsilon_{0}\hbar^{2}/me^{2}$ is the Bohr radius. Show that the minimum energy using this Ansatz is
+$$E_{0} = -\frac{\hbar^{2}}{2m} \frac{Z^{2}}{a_{0}^{2}}$$
+Compare this to the true ground state energy. 
+
+\color{violet}
+
+\color{black}
+
+\end{enumerate}
+
+\end{document}
