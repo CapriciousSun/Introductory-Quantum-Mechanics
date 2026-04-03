@@ -1,0 +1,46 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Exam 2 Review}
+\author{Jeremy Chen}
+\date{22/03/2026}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}. }]
+	
+\item Consider a particle subject to a one-dimensional simple harmonic oscillator potential. Suppose at $t = 0$ the state vector is given by
+$$\exp\left( \frac{-ipa}{\hbar} \right)\ket{0}$$
+where $p$ is the momentum operator, $a$ is some number with dimension of length, and the state $\ket{0}$ is the one for which $\braket{x} = 0 = \braket{p}$. Using the Heisenberg picture, evaluate the expectation value $\braket{x}$ for $t \geq 0$.  
+
+\item A spin $\frac{1}{2}$ particle is in an orbital angular momentum $l = 1$ state.
+
+\begin{enumerate}[a. ]
+
+\item Consider a particle subject to a one-dimensional simple harmonic oscillator
+
+\item Starting with the total angular momentum state $\ket{j, m} = \ket{j, j}$ for $j = 3/2$, use the operator $\textbf{J} = \textbf{L} + \textbf{S}$ to construct all the states $\ket{j, m_{j}}$ in terms of the eigenstates $\ket{l, m_{l}}$ for $\textbf{L}^{2}$ and $L_{z}$, and the eigenstates $\ket{1/2, \pm 1/2}$ for $\textbf{S}^{2}$ and $S_{z}$. Check your answers against any available table of Clebsch-Gordan coeffcient. 
+
+\end{enumerate}
+
+\item Make the definitions
+$$J_{\pm} \equiv \hbar a_{\pm}^{+}a_{\mp},\ \ \ J_{z} \equiv \frac{\hbar}{2}(a_{+}^{+}a_{+} - a_{-}^{+}a_{-}),\ \ \ N \equiv a_{+}a_{+} + a_{-}^{+}a_{-}$$
+where $a_{\pm}$ and $a_{\pm}^{+}$ are the annihilation and creation operators of two \textit{independent} simple harmonic oscillators satisfying the usual simple harmonic oscillator commutation relations. Also make the definition
+$$\textbf{J}^{2} \equiv J_{z}^{2} + \frac{1}{2}(J_{+}J_{-} + J_{-}J_{+})$$
+Prove
+$$[J_{z}, J_{\pm}] = \pm\hbar J_{\pm},\ \ \ [\textbf{J}^{2}, J_{z}] = 0,\ \ \ \textbf{J}^{2} = \left( \frac{\hbar^{2}}{2} \right)N\left[ \left( \frac{N}{2} \right) + 1 \right]$$
+
+\color{violet}
+\begin{gather*}
+[J_{z}, J_{+}] = [\frac{\hbar}{2}]
+\end{gather*}
+\color{black}
+
+\end{enumerate}
+
+\end{document}

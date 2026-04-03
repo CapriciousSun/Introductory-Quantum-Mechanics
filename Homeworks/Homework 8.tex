@@ -1,0 +1,67 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\title{Introductory Quantum Mechanics Homework 8}
+\author{Jeremy Chen}
+\date{03/03/2026}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}[\textbf{Problem \arabic{enumi}.}]
+
+\item Suppose a system has a basis of just two orthonormal states $\ket{1}$ and $\ket{2}$, with respect to which the total Hamiltonian has the matrix representation
+$$\begin{pmatrix}
+E_{1} & V_{0}e^{i\omega t} \\
+V_{0}e^{-i\omega t} & E_{2} 
+\end{pmatrix}$$
+where $V_{0}$ is independent of time. At $t = 0$, the system is in state $\ket{1}$. Show that the probability of transition from state $\ket{1}$ to state $\ket{2}$ in the time interval $t$ is
+$$P(t) = \frac{4V_{0}^{2}}{(E_{1} - E_{2} + \hbar\omega)^{2}}\sin^{2}\left( \frac{(E_{1} - E_{2} + \hbar\omega)t}{2\hbar} \right) + \mathcal{O}(V_{0}^{4})$$
+to the lowest non-trivial order in $V_{0}$. Solve this two-state problem exactly to find the true value of $P(t)$ and hence state conditions necessary for the perturbative approach to be valid here.
+
+\color{violet}
+The total Hamiltonian is given as the matrix, and that could be separate between non-perturbative and perturbative terms. For a Hamiltonian $H = H^{(0)} + H'$, $H^{(0)}$ would have form
+\begin{gather*}
+H^{(0)} = \begin{pmatrix}
+E_{1} & 0 \\
+0 & E_{2} 
+\end{pmatrix}
+\end{gather*}
+and $H'$ would have form
+\begin{gather*}
+H' = \begin{pmatrix}
+0 & V_{0}e^{i\omega t} \\
+V_{0}e^{i\omega t} & 0 
+\end{pmatrix}
+\end{gather*}
+The two-state system would have probabilities $\alpha\ket{1} + \beta\ket{2}$. Given that the system starts as $\ket{1}$, the probability amplitude of $\ket{2}$ is
+\begin{gather*}
+\beta = \int_{0}^{t} \frac{V_{0}e^{-i\omega t} e^{i(E_{2} - E_{1})t/\hbar}}{i\hbar} dt = \frac{V_{0}}{i\hbar} \int_{0}^{t} e^{i(E_{2} - E_{1} - \hbar\omega )t/\hbar} dt = \frac{V_{0}}{i\hbar} \left. \left( \frac{e^{i(E_{2} - E_{1} - \hbar\omega)t/\hbar}}{i(E_{2} - E_{1} - \hbar\omega)/\hbar} \right) \right\vert_{0}^{t} \\
+= \frac{V_{0}}{i\hbar} \left( \frac{e^{i(E_{2} - E_{1} - \hbar\omega)t/\hbar} - 1}{i(E_{2} - E_{1} - \hbar\omega)/\hbar} \right) = -\frac{2V_{0}}{E_{2} - E_{1} - \hbar\omega} e^{i(E_{2} - E_{1} - \hbar\omega)t/(2\hbar)}\sin\left( \frac{(E_{2} - E_{1} - \hbar\omega)t/\hbar}{2} \right)
+\end{gather*}
+Given that the probability of transition is $|\beta|^{2}$, $P(t)$ would be found in the desired form. Solving for the exact form would involve solving for $\psi(t) = \alpha\ket{1} + \beta\ket{2}$
+\color{black}
+
+\item A harmonic oscillator of angular frequency $\omega$ is acted on by the time-dependent perturbation
+$$\frac{e\mathcal{E}x}{\sqrt{\pi}\tau}e^{-t^{2}/\tau^{2}}$$
+for all $t$, where $x$ is the position operator and $q$, $\mathcal{E}$, and $\tau$ are constants. Show that in first-order perturbation theory, the only allowed transition from the ground state is to the first excited state. If the perturbation acts from very early times to very late times, find the probability that this transition takes place, correct to order $\mathcal{E}^{2}$. By expanding $U_{I}(t)$ to second non-trivial order, calculate the corresponding probability for a transition from the ground state to the second excited state.
+
+\color{violet}
+Given the perturbation term, $E^{(1)}$ would have form
+\begin{gather*}
+E^{(1)} = \braket{n | H' | 0} = \frac{e\mathcal{E}}{\sqrt{\pi}\tau}e^{-t^{2}/\tau^{2}} \braket{n | x | 0} = \frac{e\mathcal{E}}{\sqrt{\pi}\tau}e^{-t^{2}/\tau^{2}} \sqrt{\frac{\hbar}{2m\omega}} \braket{n | (\hat{a} + \hat{a}^{\dagger}) | 0}
+\end{gather*}
+With that form, the only allowed values of $n$ is 1, hence the only allowed transition is from the ground state to the first excited state. The probability this transition happens is given by
+\begin{gather*}
+P(t) = \left\vert \frac{1}{i\hbar} \frac{e\mathcal{E}}{\sqrt{\pi}\tau} \sqrt{\frac{\hbar}{2m\omega}} \int_{-\infty}^{\infty} e^{-t^{2}/\tau^{2}}e^{i \frac{E_{1} - E_{0}}{\hbar} t} dt \right\vert^{2} = \left\vert \frac{1}{i\hbar} \frac{e\mathcal{E}}{\sqrt{\pi}\tau} \sqrt{\frac{\hbar}{2m\left( \frac{E_{1} - E_{0}}{\hbar} \right)}} e^{-\left( \frac{E_{1} - E_{0}}{\hbar} \right)^{2}\tau^{2}/4} \right\vert^{2} \\
+= \frac{e^{2}\mathcal{E}}{2m\left( \frac{E_{1} - E_{0}}{\hbar} \right)\hbar} e^{-\left( \frac{E_{1} - E_{0}}{\hbar} \right)^{2}\tau^{2}/2}
+\end{gather*}
+\color{black}
+
+\end{enumerate}
+
+\end{document}
